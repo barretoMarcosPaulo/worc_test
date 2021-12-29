@@ -19,12 +19,13 @@ As regras de negocio que devem ser aplicadas são:
 - Paginados com limite de 5 por vez na listagem de candidatos
 - Possibilidade de filtro por algum ou todos atributos do candidato
 
+A aplicação foi hospedada no heroku e pode ser acessada neste <a href="https://worc-test-marcos.herokuapp.com/">link</a>
+
 # Fluxo da API
 
 Para este teste, tomei a liberdade de separar os usuários da API em dois tipos, os candidatos e os Administradores da Worc.
 Os candidatos possuem uma única ação, enviar sua candidatura na plataforma. Os Administradores possuem mais funcionalidades atreladas, conseguem criar, editar, excluir, listar e filtrar as candidaturas.
-Além disso, adicionei mais duas funcionalidades, relátorios que mostram os candidados com maior e menor pretensão salarial e os 
-candidados com maior e menor idade. O fluxo pode ser ilustrado no diagrama abaixo:
+Além disso, adicionei mais duas funcionalidades, relátorios que mostram os candidados com maior e menor pretensão salarial e os  candidados com maior e menor idade. O fluxo pode ser ilustrado no diagrama abaixo:
 
 <center>
 <img src="diagram.png">
@@ -178,6 +179,7 @@ Para rodar os testes execute:
     docker-compose run web ./manage.py test
 ```
 
+Para facilitar os testes, exportei meu ambiente do Insomnia, é um app semelhante ao postman, utilizado para fazer requisições em API. O arquivo que esta na raiz do projeto, <a href="Insomnia_2021-12-29.json">Insomnia_2021-12-29.json</a>, pode ser importado diretamente na ferramenta. O Insomnia pode ser baixado neste <a href="https://insomnia.rest/download">link</a>
 # Stack utilizada
 
 **Back-end:** Python, Django, SQLITE, Docker, Heroku
