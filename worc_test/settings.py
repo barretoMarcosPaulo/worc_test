@@ -1,6 +1,7 @@
 from pathlib import Path
 from datetime import timedelta
 
+import django_heroku
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,7 +24,7 @@ INSTALLED_APPS = [
     "worc_test.apps.candidates",
     "worc_test.apps.reports",
     "cpf_field",
-    "drf_yasg"
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [
@@ -40,15 +41,15 @@ ROOT_URLCONF = "worc_test.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
@@ -176,14 +177,9 @@ LOGGING = {
 
 SWAGGER_SETTINGS = {
     "REFETCH_SCHEMA_WITH_AUTH": True,
-    'SECURITY_DEFINITIONS': {
-        'Bearer': {
-            'type': 'apiKey',
-            'name': 'Authorization',
-            'in': 'header'
-        }
+    "SECURITY_DEFINITIONS": {
+        "Bearer": {"type": "apiKey", "name": "Authorization", "in": "header"}
     },
-    
     "APIS_SORTER": "alpha",
     "DOC_EXPANSION": None,
     "SHOW_REQUEST_HEADERS": True,
@@ -192,3 +188,5 @@ SWAGGER_SETTINGS = {
     "LOGIN_URL": "/login/",
     "LOGOUT_URL": "/logout/",
 }
+
+django_heroku.settings(locals())
